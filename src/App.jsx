@@ -1,8 +1,13 @@
 import { useState } from 'react'
 import Header from './Header'
 import img from './assets/download.png'
+import { useEffect } from "react";
+
 
 function App() {
+  useEffect({
+    
+  }, [])
   return (
     <>
       <Header/>
