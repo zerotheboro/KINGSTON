@@ -4,32 +4,55 @@
 html{
     overflow-x: hidden;
 }
+
+
 h1, h2, p{
-    color: var(--dark);
-}
+    color: white;
+} 
 h1{
     font-family: var(--h1-font);
-    font-size: 7vw;
 }
 h2{
     font-family: var(--h2-font);
-    font-size: 4vw;
-}
-p{
-    font-family: var(--p-font);
-    font-size: 2vw;
 }
 
+@media only screen and (min-width: 1000px)  {
+    h1{
+    font-size: 7vw;
+}
+    h2{
+    font-size: 4vw;
+}
+    p{
+    font-size: 2vw;
+}
+}
+@media only screen and (max-width: 1000px) {
+    h1{
+        font-size:  10vw;
+    }
+    h2{
+        font-size:  8vw;
+    }
+    p{
+        font-size:  4vw;
+    }
+}
+h1, h2{
+    grid-area: h2;
+    justify-self: center;
+    align-self: center;
+    margin: 0 1vw 0 1vw;
+}
 img{
     height: auto;
     width: 40vw;
     grid-area: img;
 }
-
-h1, h2{
-    grid-area: h2;
-    justify-self: center;
-    align-self: center;
+p{
+    font-family: var(--p-font);
+    grid-area: para;
+    padding: 3vw;
 }
 
 section.HERO{
@@ -38,14 +61,15 @@ section.HERO{
    img{
     align-self: center;
    }
-   h1{
-    font-size: 10vw;
-   }
    > .hey{
     align-self: flex-start;
+    justify-self: flex-end;
+    font-size: 16vw;
    }
    > .hoy{
     align-self: flex-end;
+    justify-self: center;
+    font-size: 10vw;
    }
 }
 
@@ -53,26 +77,99 @@ section.HERO{
 
 section.attribute{
     display: grid;
-    grid-template: 10vh 700px / 50vw 50vw;
+    grid-template: 18vh auto  / 50vw 50vw;
     gap: 1vw;
-    grid-template-areas: "h1 h1"
-                         "img h2";
+    img{
+        height: 32vh;
+        width: auto;
+        justify-self: center;
+    }
+    margin-bottom: 16vh;
+   
 }
+section.attribute.left{
+    grid-template-areas: "img h2" 
+                        "img para";
+     margin-bottom: 0vh;
+}
+section.attribute.right{
+    grid-template-areas: "h2 img "
+                         "para img";
+}
+
 
 .good, header{
     background-color: var(--yellow);
 }
 .border{
-        width: 100%;
-        aspect-ratio: 18/7;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-image: url(./assets/PEAK.svg);
-    }
-.service{
+    width: 100%;
+    aspect-ratio: 18/7;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(./assets/PEAK.svg);
+}
+.border.foot{
+    background-image: url(./assets/FOOT_PEAK.svg);
+}
+
+
+
+
+section.service{
     background-color: var(--bright-blue);
 }
+
+
+footer{
+    background-color: var(--dark);
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(var(--h2-font) /1);
+    p, h1{
+        background-color: transparent;
+        color: white;
+    }
+    a > img{
+        width: 28vh;
+        height: 28vh;
+    }
+    #contact{
+        display: flex;
+        justify-content: center;
+        gap: 5vw;
+        text-align: center;
+        div{
+            --circe--: 10vw;
+            background-color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            justify-items: center;
+            width: var(--circe--);
+            height: var(--circe--);
+            transition: background-color 300ms;
+            a{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            img{
+                width: 64%;
+                height: auto;
+            }
+        }
+        div:hover{
+            background-color: var(--bright-blue);
+        }
+    }
+}
+
 :root{
     --yellow: #FFD460;
     --orange: #F07B3F;
@@ -81,5 +178,8 @@ section.attribute{
     --bright-blue: #0096FF;
     --h1-font: "Bebas Neue";
     --h2-font:"Space Mono";
-    --p-font: "Space Grotesk";
+    --p-font: "Open Sans";
+    --h1-size: 7vw;
+    --h2-size:4vw;
+    --p-size: 2vw;
 }
